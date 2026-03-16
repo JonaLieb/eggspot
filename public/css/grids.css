@@ -1,0 +1,123 @@
+/* ==========================================================
+   UNIVERSAL FORM GRID SYSTEM
+   Drop into main template CSS
+========================================================== */
+
+/* ===============================
+   BASE GRID CONTAINER
+================================= */
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.grid > * {
+    margin-bottom: 0;
+}
+
+/* ===============================
+   GRID COLUMN COUNTS
+================================= */
+
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+.grid-6 { grid-template-columns: repeat(6, 1fr); }
+
+/* ===============================
+   COLUMN SPAN UTILITIES
+================================= */
+
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-6 { grid-column: span 6; }
+
+/* ===============================
+   COLUMN START POSITIONING
+================================= */
+
+.col-start-1 { grid-column-start: 1; }
+.col-start-2 { grid-column-start: 2; }
+.col-start-3 { grid-column-start: 3; }
+.col-start-4 { grid-column-start: 4; }
+.col-start-5 { grid-column-start: 5; }
+.col-start-6 { grid-column-start: 6; }
+
+/* ===============================
+   ROW SPAN UTILITIES
+================================= */
+
+.row-span-1 { grid-row: span 1; }
+.row-span-2 { grid-row: span 2; }
+.row-span-3 { grid-row: span 3; }
+
+/* ===============================
+   LABEL + INPUT AUTO GRID
+   (Great for forms)
+================================= */
+
+.grid-auto {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem 1rem;
+    align-items: center;
+}
+
+/* ===============================
+   RESPONSIVE BEHAVIOR
+================================= */
+
+@media (max-width: 992px) {
+    .grid-4,
+    .grid-5,
+    .grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .grid,
+    .grid-1,
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-5,
+    .grid-6 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid > * { min-width: 0; }
+
+.grid-columns {
+    align-items: start !important;
+}
+
+.grid-columns > div {
+    align-self: start;
+}
+
+.dashboard-actions-single {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.dashboard-actions-single > .button {
+    grid-column: 1 / 2;
+}
+
+.dashboard-actions-single::after {
+    content: "";
+}
+
+.dashboard-actions-single {
+    justify-content: center;
+}
