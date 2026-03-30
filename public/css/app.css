@@ -549,3 +549,20 @@ html.dark .dropdown-item:hover {
 .bold {
     font-weight: bold;
 }
+
+.justify-center {
+    justify-content: center;
+}
+
+.orders-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.orders-card-body {
+    flex: 1;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 8px;
+}

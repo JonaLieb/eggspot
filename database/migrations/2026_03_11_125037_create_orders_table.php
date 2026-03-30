@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->unsignedInteger('quantity_dozen');
-            $table->date('order_date')->nullable();
-            $table->date('expected_date')->nullable();
-            $table->date('last_updated')->nullable();
+            $table->date('delivery_date')->nullable();
             $table->string('status')->default('pending')->index();
             $table->text('notes')->nullable();
             $table->string('reference')->unique();
+            $table->decimal('total_amount', 10, 2)->default(0);
             $table->timestamps();
         });
     }

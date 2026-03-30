@@ -15,6 +15,9 @@
 <body>
 <div class="guest-page">
     <div class="guest-container">
+        <button style="position: absolute; top: 1rem; right: 1rem;" type="button" class="button button-secondary" data-theme-toggle>
+            Toggle theme
+        </button>
         @yield('content')
     </div>
 </div>

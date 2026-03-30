@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card home-card">
-        <h1>Welcome to Eggspot</h1>
+        <h1>Welcome to <span style="color: var(--accent)">Eggspot</span></h1>
         <p>
             A simple egg ordering site for fresh, easy farm orders.
         </p>

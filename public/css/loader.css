@@ -1,0 +1,168 @@
+/* =========================
+   Egg Loader CSS
+   ========================= */
+
+#page-loader {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-main);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    backdrop-filter: blur(4px);
+}
+
+#page-loader.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader-box {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* =========================
+   Egg
+   ========================= */
+
+.egg {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    margin: 0 auto 15px;
+    background: #ffffff;
+    border: 3px solid var(--accent);
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    animation: egg-wobble 0.8s infinite;
+    transform-origin: bottom center;
+}
+
+
+/* =========================
+   Crack
+   ========================= */
+
+.crack {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    width: 40px;
+    height: 20px;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: crack-flash 1.6s infinite;
+}
+
+.crack::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0 10%,
+            #ccc 10% 15%,
+            transparent 15% 25%,
+            #ccc 25% 30%,
+            transparent 30% 40%,
+            #ccc 40% 45%,
+            transparent 45% 100%
+        );
+}
+
+
+/* =========================
+   Chick
+   ========================= */
+
+.chick {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 10px);
+    font-size: 30px;
+    opacity: 0;
+    animation: chick-pop 1.6s infinite;
+}
+
+
+/* =========================
+   Text
+   ========================= */
+
+.loader-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.loader-subtext {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+
+/* =========================
+   Animations
+   ========================= */
+
+@keyframes egg-wobble {
+
+    0% { transform: rotate(0deg); }
+
+    25% { transform: rotate(6deg); }
+
+    50% { transform: rotate(0deg); }
+
+    75% { transform: rotate(-6deg); }
+
+    100% { transform: rotate(0deg); }
+
+}
+
+
+@keyframes crack-flash {
+
+    0% { opacity: 0; }
+
+    40% { opacity: 1; }
+
+    60% { opacity: 1; }
+
+    100% { opacity: 0; }
+
+}
+
+
+@keyframes chick-pop {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -5px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -8px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+}

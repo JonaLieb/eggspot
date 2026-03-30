@@ -29,6 +29,7 @@
                 @endguest
 
                 @auth
+                    @include('layouts.mini-cart')
                     <div class="dropdown" data-dropdown>
                         <button
                             type="button"

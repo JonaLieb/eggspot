@@ -14,15 +14,29 @@
                     Place your egg orders, keep track of what you’ve requested, and manage everything from one cozy little dashboard.
                 </p>
                 <div class="dashboard-actions grid grid-2">
-                    <a href="#" class="button">Place New Order</a>
-                    <a href="#" class="button button-secondary">View My Orders</a>
+                    <a href="{{ route('orders.create') }}" class="button">Place New Order</a>
+                    <a href="{{ route('orders.index') }}" class="button button-secondary">View My Orders</a>
                 </div>
             </div>
         </div>
 
-        <div class="card stat-card">
-            <h2 class="stat-label text-center mb-10">My Orders</h2>
-            <p class="stat-note text-center">No orders yet. Time to fix that.</p>
+        <div class="card orders-card">
+            <h2>My Orders</h2>
+
+            <div class="orders-card-body">
+                @if(!$recentOrders->isEmpty())
+                    @foreach($recentOrders as $order)
+                        <div class="mb-3">
+                            <strong>{{ $order->reference }}</strong><br>
+                            {{ ucfirst($order->status) }}<br>
+                            {{ $order->items->count() }} items<br>
+                            R{{ number_format($order->total_amount, 2) }}
+                        </div>
+                    @endforeach
+                @else
+                    No orders yet. Time to fix that.
+                @endif
+            </div>
         </div>
 
         <div class="card stat-card">
@@ -30,7 +44,7 @@
             <p class="stat-value"><b>Status:</b> Active</p>
             <p class="stat-note">You’re logged in and ready to order.</p>
             <div class="dashboard-actions grid grid-1 mt-10">
-                <a href="#" style="width: 50%" class="button">Edit account</a>
+                <a href="{{ route('profile.edit') }}" class="button">Edit account</a>
             </div>
         </div>
 
